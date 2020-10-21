@@ -1,0 +1,34 @@
+{
+  "name": "go-sha256",
+  "version": "0.0.1",
+  "description": "A simple SHA-256 / SHA-224 hash function for JavaScript supports UTF-8 encoding.",
+  "main": "src/sha256.js",
+  "devDependencies": {
+    "expect.js": "~0.3.1",
+    "nyc": "^15.1.0",
+    "uglify-js": "^3.11.0"
+  },
+  "scripts": {
+    "test": "nyc mocha tests/node-test.js",
+    "report": "nyc --reporter=html --reporter=text mocha tests/node-test.js",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "build": "uglifyjs src/sha256.js -c -m eval --comments -o build/sha256.min.js"
+  },
+ 
+  "keywords": [
+    "sha",
+    "sha2",
+    "sha224",
+    "sha256",
+    "hash",
+    "encryption",
+    "cryptography",
+    "HMAC"
+  ],
+  "license": "MIT",
+  "nyc": {
+    "exclude": [
+      "tests"
+    ]
+  }
+}
